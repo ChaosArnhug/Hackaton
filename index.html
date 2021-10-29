@@ -1,1 +1,22 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formulaire</title>
+        <script src="js/javascript.js"></script>
+    </head>
+    <body>
+        <form id="form" onsubmit="return data(this)" action="#">
+            MATRICULE :<input name="matricule" type="text"><br><br>
+            DATE :<input type="date" name="date"><br><br>
+            HEURE :<input type="text"><br><br>
+            ALLER/RETOUR :<input type="text"><br><br>
+            VOITURE OU PAS :<select name="carOrNot"><br><br>
+                <default value="noCar">pas de voiture</default>
+                <option value="oneSeat">une place</option>
+            </select><br><br>
+            ADDRESS :<input type="text"><br><br>
+            <button type="submit">Envoyer</button>
+        </form>
+    </body>
+</html>
