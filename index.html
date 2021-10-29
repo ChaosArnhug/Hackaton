@@ -3,17 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>Formulaire</title>
-        <script src="js/javascript.js"></script>
+        <script src="hackathon.js"></script>
     </head>
     <body>
         <form id="form" onsubmit="return data(this)" action="#">
             MATRICULE :<input name="matricule" type="text"><br><br>
-            DATE :<input type="date" name="date"><br><br>
-            HEURE :<input type="text"><br><br>
-            ALLER/RETOUR :<input type="text"><br><br>
+            DATE :<input name ="date" type="date" name="date"><br><br>
+            HEURE :<input name = "heure" type="text"><br><br>
+            ALLER/RETOUR :<input name = "allerRetour" type="text"><br><br>
             VOITURE OU PAS :<select name="carOrNot"><br><br>
-                <default value="noCar">pas de voiture</default>
+                <option value="noCar">pas de voiture</default>
                 <option value="oneSeat">une place</option>
+                <option value="twoSeat">deux places</option>
+                <option value="threeSeat">trois places</option>
+                <option value="fourSeat">quatre places</option>
+                <option value="fiveSeat">cinq places</option>
+                <option value="sixSeat">six places</option>
             </select><br><br>
             ADDRESS :<input type="text"><br><br>
             <button type="submit">Envoyer</button>
