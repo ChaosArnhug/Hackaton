@@ -1,11 +1,7 @@
 body{
     margin:0;
 }
-.profileTable{
-    border-style: solid;
-    border-width: 1px;
-    margin:3px;
-}
+
 #formInput{
     box-sizing: border-box;
     float:left;
@@ -21,26 +17,36 @@ body{
     margin : 10px;
     display: none;
 }
+.profileTable thead{
+    background-color: #f07404;
+    color:white;
+    width:auto;
+    font-size:20px;
+    padding:5px;
+    margin-top:0px;
+    text-align: center;
+}
+
 .profileTable{
     float:left;
     margin:15px;
+    border-style:solid;
+    border-color: #f07404;
+    border-collapse: collapse;
+    border-width: 1.5px;
 }
-.profileTable button{
-    border:none;
-    background-color: #f07404;
-    color:white;
-}
+
 .profileTable th{
-    border-style: solid;
-    border-width: 1px;
     padding:6px;
     margin:5px;
+    text-align: left;
+    font-weight: normal;
 }
 .profileTable td{
-    border-style: solid;
-    border-width: 1px;
     padding:6px;
     margin:5px;
+    width:12ch;
+    overflow-wrap: normal;
 }
 .profileTable p{
     margin : 0;
