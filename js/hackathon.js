@@ -149,9 +149,7 @@ function update(dico){
     }
     section.innerHTML=html;
 }
-    section.innerHTML=html;
-}
-
+    
 function confirmation(ids){
     if (list_annonce[ids].numPassenger <= 0){
         console.log("Désolé, il n'y a plus de places disponnible !");
