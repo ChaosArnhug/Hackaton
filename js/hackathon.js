@@ -140,7 +140,7 @@ function update(dico){
         html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[ids].aller;
         html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[ids].adresse;
         html += "</p></td></tr><tr><th><p>Nombre de passager :</p></th><td><p>"+dico[ids].numPassenger;
-        html += "</p></td></tr><tr><th colspan = \"2\"><button onsubmit='confirmation("+ids+")'> Choisir</button></th></tr></table></article>";
+        html += "</p></td></tr><tr><th colspan = \"2\"><button onclick='confirmation("+ids+")'> Choisir</button></th></tr></table></article>";
     }
     section.innerHTML=html;
 }
