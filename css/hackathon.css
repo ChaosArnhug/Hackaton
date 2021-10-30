@@ -1,5 +1,6 @@
 body{
     margin:0;
+    background-color: white;
 }
 
 #formInput{
@@ -34,6 +35,7 @@ body{
     border-color: #f07404;
     border-collapse: collapse;
     border-width: 1.5px;
+    background-color: white;
 }
 
 .profileTable th{
@@ -82,6 +84,7 @@ header hr{
 #form{
     padding:0px;
     border:none;
+    background-color: white;
 }
 #form fieldset {
     border:none;
