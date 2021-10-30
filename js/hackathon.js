@@ -75,8 +75,7 @@ let profile = {
         }
     }
 };
-let liste=[];
-let demoList =[
+let liste=[
     {
         matricule: "HE202075",
         date: "09/12/21",
@@ -109,7 +108,7 @@ let demoList =[
             "1450 Chastre",
         numPassenger: 4,
     }
-]
+];
 
 
 /***
