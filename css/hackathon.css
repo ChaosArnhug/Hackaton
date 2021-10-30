@@ -38,6 +38,14 @@ body{
     background-color: white;
 }
 
+.profileTable button{
+    border:none;
+    background-color: #f07404;
+    color:white;
+    padding:3px;
+    font-size:15px;
+}
+
 .profileTable th{
     padding:6px;
     margin:5px;
