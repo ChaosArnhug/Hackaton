@@ -110,3 +110,12 @@ header hr{
     column-gap: 1rem;
     text-align: center;
 }
+fieldset{
+    margin-top: 15px;
+}
+form button{
+    margin-top: 15px;
+}
+legend{
+    font-weight: bold;
+}
