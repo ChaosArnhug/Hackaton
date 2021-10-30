@@ -164,7 +164,7 @@ function switcher(page){
     if(page === "otherThing"){
         document.getElementById("formInput").style.display="none";
         document.getElementById("profiles").style.display="none";
-        document.getElementById("otherThing").style.display="block";
+        document.getElementById("otherThing").style.display="flex";
     }
 }
 
