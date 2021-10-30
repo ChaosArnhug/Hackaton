@@ -24,4 +24,6 @@ features à ajouter :
 			--> plus on a de passagers, plus on est prioritaire 
 
 		--> Extension a toutes les implentations de l'ephec
-
+		
+	MEGA MAJEUR :
+		--> dark mode
