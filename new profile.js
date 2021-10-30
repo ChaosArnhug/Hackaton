@@ -86,7 +86,82 @@ function associer(matricule) {
      }
 }
 
-let profile = {};
+let profile = {
+    "HE123456": {
+        "matricule": "HE123456",
+        "nom": "Duchamp",
+        "prenom": "Steven",
+        "email": "HE123456@students.ephec.be",
+        "adresse": "25, rue Fontaine 1489",
+
+        "horaire": {
+            "lundiD": "08:30",
+            "lundiA": "14:00",
+
+            "mardiD": "12:00",
+            "mardiA": "18:30",
+
+            "mercrediD": "09:30",
+            "mercrediA": "17:00",
+            
+            "jeudiD": "10:00",
+            "jeudiA": "12:00",
+
+            "vendrediD": "12:00",
+            "vendrediA": "18:30"
+        }
+    },
+
+    "HE6543210": {
+        "matricule": "HE654321",
+        "nom": "Durand",
+        "prenom": "Bob",
+        "email": "HE654321@students.ephec.be",
+        "adresse": "12, rue du Lion 1356",
+
+        "horaire": {
+            "lundiD": "12:00",
+            "lundiA": "13:45",
+
+            "mardiD": "09:00",
+            "mardiA": "15:30",
+            
+            "mercrediD": "10:30",
+            "mercrediA": "15:45",
+
+            "jeudiD": "13:45",
+            "jeudiA": "18:00",
+
+            "vendrediD": "08:30",
+            "vendrediA": "12:45"
+        }
+    },
+
+    "HE000000": {
+        "matricule": "HE000000",
+        "nom": "Dubois",
+        "prenom": "Sabine",
+        "email": "HE000000@students.ephec.be",
+        "adresse": "45, rue Duberger 1389",
+
+        "horaire": {
+            "lundiD": "13:45",
+            "lundiA": "18:00",
+            
+            "mardiD": "08:30",
+            "mardiA": "12:45",
+
+            "mercrediD": "08:30",
+            "mercrediA": "14:45",
+
+            "jeudiD": "09:30",
+            "jeudiA": "12:45",
+
+            "vendrediD": "10:30",
+            "vendrediA": "18:00"
+        }
+    }
+};
 function formInscription(form) {
     /**Specification of the function:
      * 
@@ -97,9 +172,9 @@ function formInscription(form) {
     let newProfile = {
         "matricule": form.matricule.value,
         "nom": form.nom.value,
-        "prénom": form.prenom.value,
+        "prenom": form.prenom.value,
         "email": form.matricule.value + "@students.ephec.be",
-        "adresse": `${form.numero.value}, ${form.rue.value} ${form.codeP.value}`,
+        "adresse": `${form.numero.value}, rue ${form.rue.value} ${form.codeP.value}`,
 
         "horaire": {
             "lundiD": form.lundiD.value,
