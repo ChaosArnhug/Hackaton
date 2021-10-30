@@ -8,93 +8,104 @@
 </head>
 
 <body>
-    <header>
-        <img id="logo" src="img/logo.png" alt="logo ephec">
-        <button class="switch" onclick="switcher('profiles'); update(list_annonce);">Annonces</button>
-        <button class="switch" onclick="switcher('formInput')">Postes</button>
-        <button class="switch" onclick="switcher('otherThing')">inscription</button>
-        <hr>
-    </header>
+<header>
+    <img id="logo" src="img/logo.png" alt="logo ephec">
+    <button class="switch" onclick="switcher('profiles'); update(list_annonce);">Annonces</button> <!-- Bouton vers page de toutes les annonces-->
+    <button class="switch" onclick="switcher('formInput')">Poste</button> <!-- Bouton vers page de création de proposition-->
+    <button class="switch" onclick="switcher('otherThing')">Inscription</button> <!-- Bouton vers page d'inscription-->
+    <hr>
+</header>
 
-    <section id="formInput">
-        <form id="form" onsubmit="return data(this)" action="#">
-            <p>Poster une nouvelle annonce</p>
-            <fieldset>
-                <label for="matriculePost">Matricule :</label>
-                <input name="matricule" id="matriculePost" type="text" required><br><br>
-                <label for="datePost">Date :</label>
-                <input name ="date" id="datePost" type="date" min="" required><br><br>
-                <label for="allerRetour">Aller/Retour :</label>
-                <input name = "allerRetour" id="allerRetour" type="text" required><br><br>
-                <label for="adressePost">Adresse :</label>
-                <input name="address" id="adressePost" type="text" required><br><br>
-                <label for="numPassenger">Nombre(s) passager(s)</label>
-                <input name="numPassenger" id="numPassenger" type="number" min="1" required><br><br>
-                <button type="submit">Envoyer</button>
-            </fieldset>
-        </form>
-    </section>
-
-    <section id="profiles">
-    </section>
-    <section id="otherThing">
-        <form id="inscription" onsubmit="return formInscription(this)">
-            <fieldset>
-                <legend>Inscription</legend>
-                <label for="matriculeIns">Matricule :</label>
-                <input type="text" id="matriculeIns" name="matricule" placeholder="Indiquez votre matricule" required>
-                <label for="nomIns">Nom :</label>
-                <input type="text" id="nomIns" name="nom" placeholder="Indiquez votre nom" required>
-                <label for="prenomIns">Prénom :</label>
-                <input type="text" id="prenomIns" name="prenom" placeholder="Indiquez votre prénom" required>
-            </fieldset>
-            <fieldset>
-                <legend>Planning</legend>
-                <div id="column">
-                <label for="lundiD">Lundi départ :</label>
-                <input type="time" id="lundiD" name="lundiD"><br>
-
-                <label for="mardiD">Mardi départ :</label>
-                <input type="time" id="mardiD" name="mardiD"><br>
-
-                <label for="mercrediD">Mercredi départ :</label>
-                <input type="time" id="mercrediD" name="mercrediD"><br>
-
-                <label for="jeudiD">Jeudi départ :</label>
-                <input type="time" id="jeudiD" name="jeudiD"><br>
-
-                <label for="vendrediD">Vendredi départ :</label>
-                <input type="time" id="vendrediD" name="vendrediD"><br>
-
-                <label for="lundiA">Lundi arrivée :</label>
-                <input type="time" id="lundiA" name="lundiA"><br>
-
-                <label for="mardiA">Mardi arrivée :</label>
-                <input type="time" id="mardiA" name="mardiA"><br>
-
-                <label for="mercrediA">Mercredi arrivée :</label>
-                <input type="time" id="mercrediA" name="mercrediA"><br>
-
-                <label for="jeudiA">Jeudi arrivée :</label>
-                <input type="time" id="jeudiA" name="jeudiA"><br>
-
-                <label for="vendrediA">Vendredi arrivée :</label>
-                <input type="time" id="vendrediA" name="vendrediA"><br>
+<section id="formInput">
+    <!-- Formulaire de proposition de co voiturage-->
+    <form id="form" onsubmit="return data(this)" action="#">
+        <p>Postez une nouvelle annonce</p>
+        <fieldset>
+            <label for="matriculePost">Matricule :</label>
+            <input name="matricule" id="matriculePost" type="text" required><br><br>
+            <label for="datePost">Date :</label>
+            <input name ="date" id="datePost" type="date" min="" required><br><br>
+            <div>
+                <label for="destination">Destination à l'Ephec :</label>
+                <input name = "allerRetour" id="destination" type="radio" value="destination à l'Ephec" required>
+                <label for="départ">Départ à l'Ephec :</label>
+                <input name = "allerRetour" id="départ" type="radio" value="départ à l'Ephec" required><br><br>
             </div>
-            </fieldset>
-            <fieldset>
-                <legend>Adresse</legend>
-                <label for="numero">Numero :</label>
-                <input type="number" id="numero" name="numero" required>
-                <label for="rue">Rue :</label>
-                <input type="texte" id="rue" name="rue" required>
-                <label for="codeP">Code postal :</label>
-                <input type="number" id="codeP" name="codeP" required>
+            <label for="numPassenger">Nombre(s) passager(s)</label>
+            <input name="numPassenger" id="numPassenger" type="number" min="1" required><br><br>
+            <button type="submit">Envoyer</button>
+        </fieldset>
+    </form>
+</section>
+<section id="profiles">
+    <!-- Zone d'affichage de toutes les propositions de co voiturage-->
+</section>
+<section id="otherThing">
+    <!-- Formulaire d'inscription sur la plateform-->
+    <form id="inscription" onsubmit="return formInscription(this)">
+        <fieldset>
+            <legend>Inscription</legend>
+            <label for="matriculeIns">Matricule :</label>
+            <input type="text" id="matriculeIns" name="matricule" placeholder="Indiquez votre matricule" required>
+            <label for="nomIns">Nom :</label>
+            <input type="text" id="nomIns" name="nom" placeholder="Indiquez votre nom" required>
+            <label for="prenomIns">Prénom :</label>
+            <input type="text" id="prenomIns" name="prenom" placeholder="Indiquez votre prénom" required>
+        </fieldset>
+        <fieldset>
+            <legend>Planning</legend>
+            <div id="column">
+                <fieldset>
+                    <legend>Heure d'arrivée à l'Ephec</legend>
+                    <label for="lundiD">Lundi :</label>
+                    <input type="time" id="lundiD" name="lundiD"><br>
+
+                    <label for="mardiD">Mardi :</label>
+                    <input type="time" id="mardiD" name="mardiD"><br>
+
+                    <label for="mercrediD">Mercredi :</label>
+                    <input type="time" id="mercrediD" name="mercrediD"><br>
+
+                    <label for="jeudiD">Jeudi :</label>
+                    <input type="time" id="jeudiD" name="jeudiD"><br>
+
+                    <label for="vendrediD">Vendredi :</label>
+                    <input type="time" id="vendrediD" name="vendrediD"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Heure de départ à l'Ephec</legend>
+                    <label for="lundiA">Lundi :</label>
+                    <input type="time" id="lundiA" name="lundiA"><br>
+
+                    <label for="mardiA">Mardi :</label>
+                    <input type="time" id="mardiA" name="mardiA"><br>
+
+                    <label for="mercrediA">Mercredi :</label>
+                    <input type="time" id="mercrediA" name="mercrediA"><br>
+
+                    <label for="jeudiA">Jeudi :</label>
+                    <input type="time" id="jeudiA" name="jeudiA"><br>
+
+                    <label for="vendrediA">Vendredi :</label>
+                    <input type="time" id="vendrediA" name="vendrediA"><br>
+                </fieldset>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Adresse</legend>
+            <label for="numero">Numéro :</label>
+            <input type="number" id="numero" name="numero" placeholder="Indiquez votre numéro " required>
+            <label for="rue">Rue/Avenue :</label>
+            <input type="texte" id="rue" name="rue" placeholder="Indiquez votre rue/avenue" required>
+            <label for="codeP">Code postal :</label>
+            <input type="number" id="codeP" name="codeP" placeholder="Indiquez votre code postal" required>
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" placeholder="Indiquez votre ville" required>
 
 
-            </fieldset>
-            <button type="submit">S'incricre</button>
-        </form>
-    </section>
+        </fieldset>
+        <button type="submit">S'inscrire</button>
+    </form>
+</section>
 </body>
 </html>
