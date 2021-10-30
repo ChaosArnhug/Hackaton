@@ -25,6 +25,11 @@ body{
     float:left;
     margin:15px;
 }
+.profileTable button{
+    border:none;
+    background-color: #f07404;
+    color:white;
+}
 .profileTable th{
     border-style: solid;
     border-width: 1px;
@@ -45,7 +50,7 @@ body{
     width: auto;
     margin:10px;
 }
-#switch{
+.switch{
     height: 50px;
     border:none;
     background-color: #f07404;
@@ -70,9 +75,15 @@ header hr{
 }
 #form{
     padding:0px;
-    border-style: solid;
-    border-color: #f07404;
+    border:none;
 }
 #form fieldset {
     border:none;
+}
+#otherThing{
+    display:none;
+}
+#inscription fieldset{
+    border-style: solid;
+    border-color:#f07404;
 }
