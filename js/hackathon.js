@@ -75,8 +75,9 @@ let profile = {
         }
     }
 };
-let liste=[
-    {
+let id = 4;
+let list_annonce={
+    0: {
         matricule: "HE202075",
         date: "09/12/21",
         aller: "aller",
@@ -84,7 +85,7 @@ let liste=[
             "1435 Mont-Saint-Guibert",
         numPassenger: "3",
     },
-    {
+    1: {
         matricule: "HE202079",
         date: "16/12/21",
         aller: "retour",
@@ -92,7 +93,7 @@ let liste=[
             "1450 Chastre",
         numPassenger: "2",
     },
-    {
+    2: {
         matricule: "HE202162",
         date: "03/11/21",
         aller: "retour",
@@ -100,7 +101,7 @@ let liste=[
             "1450 Chastre",
         numPassenger: 4,
     },
-    {
+    3: {
         matricule: "HE202162",
         date: "03/11/21",
         aller: "retour",
@@ -108,7 +109,7 @@ let liste=[
             "1450 Chastre",
         numPassenger: 4,
     }
-];
+};
 
 
 /***
@@ -116,15 +117,15 @@ let liste=[
  */
 
 function data(form){
-    let object ={
-        matricule : form.matricule.value,
-        date : form.date.value,
-        aller : form.allerRetour.value,
-        adresse : form.address.value,
-        nbrPassenger : form.numPassenger
-    }
-    liste.push(object);
-    update(liste);
+    list_annonce[id] = {
+        matricule: form.matricule.value,
+        date: form.date.value,
+        aller: form.allerRetour.value,
+        adresse: form.address.value,
+        nbrPassenger: form.numPassenger
+    };
+    id++;
+    update(list_annonce);
     document.getElementById("form").reset();
     return false;
 }
@@ -132,16 +133,17 @@ function data(form){
 function update(dico){
     let section = document.getElementById("profiles");
     let html = "";
-    for(let i = 0; i < dico.length;i++){
-        html += "<article><table class=\"profileTable\"><tr><th><p>Matricule :</p></th><td><p>"+dico[i].matricule;
-        html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[i].date;
-        html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[i].aller;
-        html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[i].adresse;
-        html += "</p></td></tr><tr><th><p>Nombre de passager :</p></th><td><p>"+dico[i].numPassenger;
-        html += "</p></td></tr><tr><th colspan = \"2\"><button onclick=\"sendConfirmation("+i+")\">Choisir</button></th></tr></table></article>";
+    for(let ids in Object.keys(dico)){
+        html += "<article><table class=\"profileTable\"><tr><th><p>Matricule :</p></th><td><p>"+dico[ids].matricule;
+        html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[ids].date;
+        html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[ids].aller;
+        html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[ids].adresse;
+        html += "</p></td></tr><tr><th><p>Nombre de passager :</p></th><td><p>"+dico[ids].numPassenger;
+        html += "</p></td></tr><tr><th colspan = \"2\"><button onsubmit='confirmation("+ids+")'> Choisir</button></th></tr></table></article>";
     }
     section.innerHTML=html;
 }
+
 
 /***
  *Fonctions gestions affichage
@@ -204,3 +206,5 @@ function formInscription(form) {
     console.log(profile);
     return false;
 }
+
+
