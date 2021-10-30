@@ -4,6 +4,40 @@ let dico_mat_mail ={
     "HE123456" : "HE123456@students.ephec.be",
     "HE654321" : "HE654321@students.ephec.be",
 }
+let object =[
+    {
+        matricule: "HE202075"
+        date: "09/12/21",
+        aller: "aller",
+        adresse: "Grand'Place 1\n" +
+            "1435 Mont-Saint-Guibert",
+        nbrPass: "3",
+    }
+    {
+        matricule: "HE202079"
+        date: "16/12/21",
+        aller: "retour",
+        adresse: "Av. Minerve 6\n"+
+            "1450 Chastre",
+        nbrPass: "2",
+    }
+    {
+        matricule: "HE202162"
+        date: "03/11/21",
+        aller: "retour",
+        adresse: "Rue des Combattants 28\n"+
+            "1450 Chastre",
+        nbrPass: "4",
+    }
+    {
+        matricule: "HE202162"
+        date: "03/11/21",
+        aller: "retour",
+        adresse: "Rue des Combattants 28\n"+
+            "1450 Chastre",
+        nbrPass: "4",
+    }
+]
 
 let liste=[];
 function data(form){
