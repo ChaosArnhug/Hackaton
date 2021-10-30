@@ -135,7 +135,7 @@ function update(dico){
     let html = "";
     for(let ids in Object.keys(dico)){        
         html += "<article><table class=\"profileTable\"><thead><tr><td colspan=\"2\"><p>Annonce #"+ids+"</p></td></tr></thead>"
-        html += "<tr><th><p>Matricule :</p></th><td><p>"+dico[i].matricule;
+        html += "<tr><th><p>Matricule :</p></th><td><p>"+dico[ids].matricule;
         html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[ids].date;
         html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[ids].aller;
         html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[ids].adresse;
