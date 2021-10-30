@@ -122,7 +122,7 @@ function data(form){
         date: form.date.value,
         aller: form.allerRetour.value,
         adresse: form.address.value,
-        nbrPassenger: form.numPassenger
+        numPassenger: form.numPassenger.value
     };
     id++;
     update(list_annonce);
