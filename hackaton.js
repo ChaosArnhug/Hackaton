@@ -9,15 +9,45 @@ let dico_mat_mail ={
 
 
 let liste=[];
-function data(){
+function data(form){
     let object ={
         matricule : form.matricule.value,
         date : form.date.value,
         aller : form.allerRetour.value,
         adresse : form.address.value,
+        nbrPassenger : form.numPassenger
     }
     liste.push(object);
+    add(liste);
+    document.getElementById("form").reset();
     return false;
-]
-    
+}
+let extraTime = 15;
+function add(dico){
+    let section = document.getElementById("profiles");
+    let html = "";
+    for(let i = 0; i < dico.length;i++){
+        html += "<article id=\"profile1\"><table class=\"profileTable\"><tr><th><p>Matricule :</p></th><td><p>"+dico[i].matricule;
+        html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[i].date;
+        html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[i].aller;
+        html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[i].adresse;
+        html += "</p></td></tr><tr><th><p>Temp en plus :</p></th><td><p>"+extraTime;
+        html += "</p></td></tr><tr><th colspan = \"2\"><button onclick=\"choose()\">Choisir</button></th></tr></table></article>";
+    }
+    section.innerHTML=html;
+}
+let profiles = true;
 
+function switcher(){
+    if(profiles){
+        document.getElementById("profiles").style.display="block";
+        document.getElementById("formInput").style.display="none";
+        console.log("changed");
+        profiles = false;
+    }else{
+        document.getElementById("formInput").style.display="flex";
+        document.getElementById("profiles").style.display="none";
+        profiles = true;
+        console.log("changed");
+    }
+}
