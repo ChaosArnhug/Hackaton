@@ -131,23 +131,20 @@ function data(form){
 }
 
 function update(dico){
-    let section = document.getElementById("profiles");
-    let html = "";
-    function update(dico){
-    let section = document.getElementById("profiles");
-    let html = "";
-    for(let ids in Object.keys(dico)){        
-      if(dico[ids].numPassenger>0){
-            html += "<article><table class=\"profileTable\"><thead><tr><td colspan=\"2\"><p>Annonce #"+ids+"</p></td></tr></thead>"
-            html += "<tr><th><p>Matricule :</p></th><td><p>"+dico[ids].matricule;
-            html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[ids].date;
-            html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[ids].aller;
-            html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[ids].adresse;
-            html += "</p></td></tr><tr><th><p>Nombre de passager :</p></th><td><p>"+dico[ids].numPassenger;
-            html += "</p></td></tr><tr><th colspan = \"2\"><button onclick='confirmation("+ids+")'> Choisir</button></th></tr></table></article>";
-        }
+let section = document.getElementById("profiles");
+let html = "";
+for(let ids in Object.keys(dico)){        
+  if(dico[ids].numPassenger>0){
+        html += "<article><table class=\"profileTable\"><thead><tr><td colspan=\"2\"><p>Annonce #"+ids+"</p></td></tr></thead>"
+        html += "<tr><th><p>Matricule :</p></th><td><p>"+dico[ids].matricule;
+        html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[ids].date;
+        html += "</p></td></tr><tr><th><p>Aller/Retour :</p></th><td><p>"+dico[ids].aller;
+        html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+dico[ids].adresse;
+        html += "</p></td></tr><tr><th><p>Nombre de passager :</p></th><td><p>"+dico[ids].numPassenger;
+        html += "</p></td></tr><tr><th colspan = \"2\"><button onclick='confirmation("+ids+")'> Choisir</button></th></tr></table></article>";
     }
-    section.innerHTML=html;
+}
+section.innerHTML=html;
 }
     
 function confirmation(ids){
