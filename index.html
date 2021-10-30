@@ -4,37 +4,89 @@
         <meta charset="utf-8">
         <title>Formulaire</title>
         <script src="hackathon.js"></script>
+        <script src="associer.js"></script>
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <header>
             <img id="logo" src="logo.png" alt="logo ephec">
-            <button id="switch" onclick="switcher()">Switch</button>
+            <button class="switch" onclick="switcher('profiles')">profiles</button>
+            <button class="switch" onclick="switcher('formInput')">annonce</button>
+            <button class="switch" onclick="switcher('otherThing')">inscription</button>
             <hr>
         </header>
         <section id="formInput">
             <form id="form" onsubmit="return data(this)" action="#">
-                MATRICULE :<input name="matricule" type="text" required><br><br>
-                DATE :<input name ="date" type="date" name="date" min="" required><br><br>
-                <!-- HEURE :<input name = "heure" type="text"><br><br> -->
-                ALLER/RETOUR :<input name = "allerRetour" type="text" required><br><br>
-                <!-- VOITURE OU PAS :<select name="carOrNot"><br><br>
-                    <option value="noCar">pas de voiture</default>
-                    <option value="oneSeat">une place</option>
-                    <option value="twoSeat">deux places</option>
-                    <option value="threeSeat">trois places</option>
-                    <option value="fourSeat">quatre places</option>
-                    <option value="fiveSeat">cinq places</option>
-                    <option value="sixSeat">six places</option>
-                </select><br><br> -->
-                ADRESSE :<input name="address" type="text" required><br><br>
-                NOMBRE PASSAGER :<input name="numPassenger" type="number" required><br><br>
-                <button type="submit">Envoyer</button>
+                <p>poster une annonce</p>
+                <fieldset>
+                    MATRICULE :<input name="matricule" type="text" required><br><br>
+                    DATE :<input name ="date" type="date" name="date" min="" required><br><br>
+                    ALLER/RETOUR :<input name = "allerRetour" type="text" required><br><br>
+                    ADRESSE :<input name="address" type="text" required><br><br>
+                    NOMBRE PASSAGER :<input name="numPassenger" type="number" required><br><br>
+                    <button type="submit">Envoyer</button>
+                </fieldset>
             </form>
         </section>
 
         <section id="profiles">
-            
+        </section>
+        <section id="otherThing">
+            <form id="inscription" onsubmit="return formInscription(this)">
+                <fieldset>
+                    <legend>Inscription</legend>
+                    <label for="matricule">Matricule :</label>
+                    <input type="text" id="matricule" name="matricule" placeholder="Indiquez votre matricule" required>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Indiquez votre nom" required>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Indiquez votre prénom" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Planning</legend>
+                    <div>
+                        <label for="lundiD">Lundi départ :</label> 
+                        <input type="time" id="lundiD" name="lundiD">
+                        
+                    <label for="mardiD">Mardi départ :</label>
+                    <input type="time" id="mardiD" name="mardiD">
+                    
+                    <label for="mercrediD">Mercredi départ :</label>
+                    <input type="time" id="mercrediD" name="mercrediD">
+                    </div>
+
+                    <label for="lundiA">Lundi arrivée :</label>
+                    <input type="time" id="lundiA" name="lundiA"><br>
+    
+                    <label for="mardiA">Mardi arrivée :</label>
+                    <input type="time" id="mardiA" name="mardiA"><br>
+    
+                    <label for="mercrediA">Mercredi arrivée :</label>
+                    <input type="time" id="mercrediA" name="mercrediA"><br>
+    
+                    <label for="jeudiD">Jeudi départ :</label>
+                    <input type="time" id="jeudiD" name="jeudiD">
+                    <label for="jeudiA">Jeudi arrivée :</label>
+                    <input type="time" id="jeudiA" name="jeudiA"><br>
+    
+                    <label for="vendrediD">Vendredi départ :</label>
+                    <input type="time" id="vendrediD" name="vendrediD">
+                    <label for="vendrediA">Vendredi arrivée :</label>
+                    <input type="time" id="vendrediA" name="vendrediA"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Adresse</legend>
+                    <label for="numero">Numero :</label>
+                    <input type="number" id="numero" name="numero" required>
+                    <label for="rue">Rue :</label>
+                    <input type="texte" id="rue" name="rue" required>
+                    <label for="codeP">Code postal :</label>
+                    <input type="number" id="codeP" name="codeP" required>
+                    
+    
+                </fieldset>
+                <button type="submit">S'incricre</button>
+            </form>
         </section>
     </body>
 </html>
