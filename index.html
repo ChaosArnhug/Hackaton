@@ -4,14 +4,20 @@
         <meta charset="utf-8">
         <title>Formulaire</title>
         <script src="hackathon.js"></script>
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
+        <header>
+            <img id="logo" src="logo.png" alt="logo ephec">
+            <button id="switch" onclick="switcher()">Switch</button>
+            <hr>
+        </header>
         <section id="formInput">
             <form id="form" onsubmit="return data(this)" action="#">
-                MATRICULE :<input name="matricule" type="text"><br><br>
-                DATE :<input name ="date" type="date" name="date" min=""><br><br>
+                MATRICULE :<input name="matricule" type="text" required><br><br>
+                DATE :<input name ="date" type="date" name="date" min="" required><br><br>
                 <!-- HEURE :<input name = "heure" type="text"><br><br> -->
-                ALLER/RETOUR :<input name = "allerRetour" type="text"><br><br>
+                ALLER/RETOUR :<input name = "allerRetour" type="text" required><br><br>
                 <!-- VOITURE OU PAS :<select name="carOrNot"><br><br>
                     <option value="noCar">pas de voiture</default>
                     <option value="oneSeat">une place</option>
@@ -21,22 +27,14 @@
                     <option value="fiveSeat">cinq places</option>
                     <option value="sixSeat">six places</option>
                 </select><br><br> -->
-                ADRESSE :<input type="text"><br><br>
+                ADRESSE :<input name="address" type="text" required><br><br>
+                NOMBRE PASSAGER :<input name="numPassenger" type="number" required><br><br>
                 <button type="submit">Envoyer</button>
             </form>
         </section>
 
         <section id="profiles">
-            <article id="profile1">
-                <table>
-                    <tr>
-                        <td>caca</td>
-                    </tr>
-                    <tr>
-                        <td>pipi</td>
-                    </tr>
-                </table>
-            </article>
+            
         </section>
     </body>
 </html>
