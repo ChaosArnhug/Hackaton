@@ -10,7 +10,6 @@ function direction(dest1, dest2) { //dest1 et dest2 sont les deux villes
 	  }
 	};
 	body = JSON.stringify(body)
-	console.log(body);
 	let xhr = new XMLHttpRequest();
 		xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', true)
 		xhr.onload = result;
