@@ -146,6 +146,10 @@ function update(dico){
 }
 
 function confirmation(ids){
+    if (list_annonce[ids].numPassenger <= 0){
+        console.log("Désolé, il n'y a plus de places disponnible !");
+        return 0;
+    }
     let user = prompt("Qui êtes-vous ?");
     if (! (user in profile)){
         console.log("Matricule introuvable !");
@@ -159,6 +163,8 @@ function confirmation(ids){
         console.log("Vous avez accepté le client.");
         console.log("==Client=============================================================================");
         console.log(`Votre demande à l'annonce ${ids} a été accepté`);
+        list_annonce[ids].numPassenger -= 1;
+        update(list_annonce);
     } else {
         console.log("Vous avez refusé le client.");
         console.log("==Client=============================================================================");
