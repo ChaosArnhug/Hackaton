@@ -91,8 +91,14 @@ header hr{
 }
 #otherThing{
     display:none;
+    justify-content: center;
 }
 #inscription fieldset{
     border-style: solid;
     border-color:#f07404;
+}
+#column{
+    column-count: 2;
+    column-gap: 1rem;
+    text-align: center;
 }
