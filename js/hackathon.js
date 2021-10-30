@@ -5,7 +5,7 @@ let profile = {
         nom: "Meunier",
         prenom: "Arnaud",
         adresse: "Avenue Bel Air n°15,\n 1410 Waterloo",
-        ville: "Waterloo",
+        ville: "Waterloo,1410",
         email: "HE000000@students.ephec.be",
         horaire: {
             lundiAE: "08:30",
@@ -24,8 +24,8 @@ let profile = {
         matricule: "HE123456",
         nom: "Pierre",
         prenom: "Jean",
-        adresse: "Rue de la couronne n°20,\n 1300 Wavre",
-        ville: "Wavre",
+        adresse: "Avenue Louise n°11,\n 1000 Bruxelles",
+        ville: "Bruxelles,1000",
         email: "HE123456@students.ephec.be",
         horaire: {
             lundiAE: "09:00",
@@ -45,7 +45,7 @@ let profile = {
         nom: "Liégeois",
         prenom: "Romain",
         adresse: "Clos des épinoches n°5,\n 1420 Braine l'Alleud",
-        ville: "Braine l'Alleud",
+        ville: "Braine l'Alleud,1420",
         email: "HE654321@students.ephec.be",
         horaire: {
             lundiAE: "07:00",
@@ -101,7 +101,7 @@ function formInscription(form) {
         prenom: form.prenom.value,
         email: form.matricule.value + "@students.ephec.be",
         adresse: `${form.rue.value} n°${form.numero.value},\n ${form.codeP.value} ${form.ville.value}`,
-        ville: form.ville.value,
+        ville: `${form.ville.value},${form.codeP.value}`,
 
         horaire: {
             lundiAE: form.lundiD.value,
@@ -162,6 +162,30 @@ function update(dico){
     section.innerHTML=html;
 }
 
+//API foireuse pour démo
+function direction(dir1, dir2) { //dest1 et dest2 sont les deux villes
+
+    let body = {
+        "locations": [
+            dir1,
+            dir2
+        ],
+        "options": {
+            "allToAll": false
+        }
+    };
+    body = JSON.stringify(body)
+    let xhr = new XMLHttpRequest();
+    xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', true)
+
+    xhr.onload = function() {
+        let distance = JSON.parse(this.responseText);
+        console.log(distance.distance[1] + 10);
+    }
+
+    xhr.send(body);
+}
+
 //Simulation d'échange mail client-conducteur
 function confirmation(ids){
     if (list_annonce[ids].numPassenger <= 0){
@@ -211,3 +235,12 @@ function switcher(page){
         document.getElementById("otherThing").style.display="flex";
     }
 }
+
+
+/***
+ * fonction calcul distance entre 2 villes (nb; foireux mais marche si
+ * "Louvain-la-Neuve, 1348",
+ " Waterloo,1410")
+ * @param dir1
+ * @param dir2
+ */
