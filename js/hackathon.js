@@ -176,7 +176,7 @@ function direction(dir1, dir2) { //dest1 et dest2 sont les deux villes
     };
     body = JSON.stringify(body)
     let xhr = new XMLHttpRequest();
-    xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', true)
+    xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', false)
 
     xhr.onload = function() {
         let distance = JSON.parse(this.responseText);
