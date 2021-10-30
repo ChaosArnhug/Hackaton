@@ -145,6 +145,26 @@ function update(dico){
     section.innerHTML=html;
 }
 
+function confirmation(ids){
+    let user = prompt("Qui êtes-vous ?");
+    if (! (user in profile)){
+        console.log("Matricule introuvable !");
+        return -1
+    }
+    let client = profile[user];
+    //Conducteur
+    console.log("==Conducteur=============================================================================");
+    console.log(`Le client ${client["nom"]} ${client["prenom"]}, habitant ${client["adresse"]} est intéressé par votre annonce ${ids}`);
+    if (prompt("Accpetez vous ? (oui / non)") === "oui"){
+        console.log("Vous avez accepté le client.");
+        console.log("==Client=============================================================================");
+        console.log(`Votre demande à l'annonce ${ids} a été accepté`);
+    } else {
+        console.log("Vous avez refusé le client.");
+        console.log("==Client=============================================================================");
+        console.log(`Votre demande à l'annonce ${ids} a été refusé`);
+    }
+}
 
 /***
  *Fonctions gestions affichage
