@@ -1,9 +1,19 @@
 body{
     margin:0;
     background-color: white;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: Arial, sans-serif;
 }
-
+button{
+    font-family: Arial, sans-serif;
+    padding:5px;
+    border:none;
+    border-radius: 15%;
+    background-color: #f07404;
+    color:white;
+}
+header{
+    position:sticky;
+}
 #formInput{
     box-sizing: border-box;
     float:left;
@@ -18,6 +28,7 @@ body{
     width: 100%;
     margin : 10px;
     display: none;
+    justify-content: center;
 }
 .profileTable thead{
     background-color: #f07404;
@@ -77,6 +88,8 @@ body{
     font-size: 30px;
     border-radius: 10px;
     margin:10px;
+    padding-left: 10px;
+    padding-right:10px;
 }
 header hr{
     color:#f07404;
@@ -113,7 +126,10 @@ header hr{
     text-align: center;
 }
 fieldset{
-    margin-top: 15px;
+    margin: 15px;
+}
+fieldset fieldset{
+    margin: 0;
 }
 form button{
     margin-top: 15px;
