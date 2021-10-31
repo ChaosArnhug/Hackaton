@@ -12,7 +12,8 @@ button{
     color:white;
 }
 header{
-    position:sticky;
+    position:fixed;
+    background-color:white;
 }
 #formInput{
     box-sizing: border-box;
