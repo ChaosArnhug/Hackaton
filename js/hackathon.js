@@ -245,12 +245,3 @@ function switcher(page){
         document.getElementById("otherThing").style.display="flex";
     }
 }
-
-
-/***
- * fonction calcul distance entre 2 villes (nb; foireux mais marche si
- * "Louvain-la-Neuve, 1348",
- " Waterloo,1410")
- * @param dir1
- * @param dir2
- */
