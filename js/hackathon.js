@@ -178,7 +178,7 @@ function data(form){
         update(list_annonce);
     }
     document.getElementById("form").reset();
-    document.getElementById("msgConfPost").innerText = `Votre poste a été pris en compte (Annonce ${id -1}) !s`;
+    document.getElementById("msgConfPost").innerText = `Votre poste a été pris en compte (Annonce ${id -1}) !`;
     return false;
 }
 
