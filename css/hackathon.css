@@ -29,6 +29,7 @@ header{
     margin : 10px;
     display: none;
     justify-content: center;
+    flex-wrap:wrap;
 }
 .profileTable thead{
     background-color: #f07404;
