@@ -27,13 +27,14 @@
             <input name ="date" id="datePost" type="date" min="" required><br><br>
             <div>
                 <label for="destination">Destination Ephec :</label>
-                <input name = "allerRetour" id="destination" type="radio" value="destination Ephec" required>
+                <input name = "allerRetour" id="destination" type="radio" value="destination à l'Ephec" required>
                 <label for="départ">Départ à l'Ephec :</label>
                 <input name = "allerRetour" id="départ" type="radio" value="départ à l'Ephec" required><br><br>
             </div>
             <label for="numPassenger">Nombre(s) passager(s)</label>
             <input name="numPassenger" id="numPassenger" type="number" min="1" required><br><br>
             <button type="submit">Envoyer</button>
+            <div id="msgConfPost"></div>
         </fieldset>
     </form>
 </section>
@@ -105,6 +106,7 @@
 
         </fieldset>
         <button type="submit">S'inscrire</button>
+        <div id="msgConfProf"></div>
     </form>
 </section>
 </body>
