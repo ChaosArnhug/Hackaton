@@ -5,7 +5,7 @@ let profile = {
         nom: "Meunier",
         prenom: "Arnaud",
         adresse: "Avenue Bel Air n°15,\n 1410 Waterloo",
-        ville: "Waterloo,1410",
+        ville: "Waterloo",
         email: "HE000000@students.ephec.be",
         horaire: {
             lundiAE: "08:30",
@@ -24,8 +24,8 @@ let profile = {
         matricule: "HE123456",
         nom: "Pierre",
         prenom: "Jean",
-        adresse: "Avenue Louise n°11,\n 1000 Bruxelles",
-        ville: "Bruxelles,1000",
+        adresse: "Rue de la couronne n°20,\n 1300 Wavre",
+        ville: "Wavre",
         email: "HE123456@students.ephec.be",
         horaire: {
             lundiAE: "09:00",
@@ -45,7 +45,7 @@ let profile = {
         nom: "Liégeois",
         prenom: "Romain",
         adresse: "Clos des épinoches n°5,\n 1420 Braine l'Alleud",
-        ville: "Braine l'Alleud,1420",
+        ville: "Braine l'Alleud",
         email: "HE654321@students.ephec.be",
         horaire: {
             lundiAE: "07:00",
@@ -101,7 +101,7 @@ function formInscription(form) {
         prenom: form.prenom.value,
         email: form.matricule.value + "@students.ephec.be",
         adresse: `${form.rue.value} n°${form.numero.value},\n ${form.codeP.value} ${form.ville.value}`,
-        ville: `${form.ville.value},${form.codeP.value}`,
+        ville: form.ville.value,
 
         horaire: {
             lundiAE: form.lundiD.value,
@@ -155,35 +155,11 @@ function update(dico){
             html += "</p></td></tr><tr><th><p>Date :</p></th><td><p>"+dico[ids].date;
             html += "</p></td></tr><tr><th><p>Direction :</p></th><td><p>"+dico[ids].direction;
             html += "</p></td></tr><tr><th><p>Adresse :</p></th><td><p>"+ profile[dico[ids].matricule].adresse;
-            html += "</p></td></tr><tr><th><p>Nombre de passager(s) :</p></th><td><p>"+dico[ids].numPassenger;
+            html += "</p></td></tr><tr><th><p>Passager(s) :</p></th><td><p>"+dico[ids].numPassenger;
             html += "</p></td></tr><tr><th colspan = \"2\"><button onclick='confirmation("+ids+")'> Choisir</button></th></tr></table></article>";
         }
     }
     section.innerHTML=html;
-}
-
-//API foireuse pour démo
-function direction(dir1, dir2) { //dest1 et dest2 sont les deux villes
-
-    let body = {
-        "locations": [
-            dir1,
-            dir2
-        ],
-        "options": {
-            "allToAll": false
-        }
-    };
-    body = JSON.stringify(body)
-    let xhr = new XMLHttpRequest();
-    xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', false)
-
-    xhr.onload = function() {
-        let distance = JSON.parse(this.responseText);
-        console.log(distance.distance[1] + 10);
-    }
-
-    xhr.send(body);
 }
 
 //Simulation d'échange mail client-conducteur
@@ -220,7 +196,7 @@ function confirmation(ids){
 
 function switcher(page){
     if(page === "profiles"){
-        document.getElementById("profiles").style.display="block";
+        document.getElementById("profiles").style.display="flex";
         document.getElementById("formInput").style.display="none";
         document.getElementById("otherThing").style.display="none";
     }
@@ -235,12 +211,3 @@ function switcher(page){
         document.getElementById("otherThing").style.display="flex";
     }
 }
-
-
-/***
- * fonction calcul distance entre 2 villes (nb; foireux mais marche si
- * "Louvain-la-Neuve, 1348",
- " Waterloo,1410")
- * @param dir1
- * @param dir2
- */
