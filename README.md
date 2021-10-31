@@ -1,4 +1,5 @@
 # Hackaton
+![image](https://user-images.githubusercontent.com/92374656/139577810-c265b15d-2d11-4605-9f15-a58fe685898c.png)
 https://chaosarnhug.github.io/Hackaton/
 https://ephec-my.sharepoint.com/:p:/g/personal/he201932_students_ephec_be/EbISkX2K8bNIkj8Tkqa5g7gBx78r_HO7j44mTvh9dhgqcw?e=pJs817
 
@@ -28,4 +29,4 @@ features à ajouter :
 		
 	MEGA MAJEUR :
 		--> dark mode
-![image](https://user-images.githubusercontent.com/92374656/139577810-c265b15d-2d11-4605-9f15-a58fe685898c.png)
+
