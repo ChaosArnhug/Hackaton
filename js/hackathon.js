@@ -125,22 +125,32 @@ function formInscription(form) {
     return false;
 }
 
-
+function checkSignedUp(matric){
+    for(let ids in Object.keys(profile)){
+        if(matric===profile[Object.keys(profile)[ids]].matricule){
+            return true;
+        }
+    }
+    alert("veuillez vous inscrires avant de poster une annonce");
+    return false;
+}
 /***
  *Fonction pour gestion des propositions /posts
  */
 
 //insère data dans stockage list_annonce
 function data(form){
-    list_annonce[id] = {
-        matricule: form.matricule.value,
-        date: form.date.value,
-        direction: form.allerRetour.value,
-        numPassenger: form.numPassenger.value
-    };
-    id++;
-    update(list_annonce);
-    document.getElementById("form").reset();
+    if(checkSignedUp(form.matricule.value)){
+        list_annonce[id] = {
+            matricule: form.matricule.value,
+            date: form.date.value,
+            direction: form.allerRetour.value,
+            numPassenger: form.numPassenger.value
+        };
+        id++;
+        update(list_annonce);
+    }else{
+    }   
     return false;
 }
 
