@@ -4,8 +4,8 @@ let profile = {
         matricule: "HE000000",
         nom: "Meunier",
         prenom: "Arnaud",
-        adresse: "Avenue Bel Air n°15,\n 1410 Waterloo",
-        ville: "Waterloo,1410",
+        adresse: "Rue de la couronne n°20,\n 1300 Wavre",
+        ville: "Wavre",
         email: "HE000000@students.ephec.be",
         horaire: {
             lundiAE: "08:30",
@@ -25,7 +25,7 @@ let profile = {
         nom: "Pierre",
         prenom: "Jean",
         adresse: "Avenue Louise n°11,\n 1000 Bruxelles",
-        ville: "Bruxelles,1000",
+        ville: "Bruxelles",
         email: "HE123456@students.ephec.be",
         horaire: {
             lundiAE: "09:00",
@@ -45,7 +45,7 @@ let profile = {
         nom: "Liégeois",
         prenom: "Romain",
         adresse: "Clos des épinoches n°5,\n 1420 Braine l'Alleud",
-        ville: "Braine l'Alleud,1420",
+        ville: "Braine l'Alleud",
         email: "HE654321@students.ephec.be",
         horaire: {
             lundiAE: "07:00",
@@ -94,14 +94,13 @@ function formInscription(form) {
      * @param {form} form le formulaire html d'où viennent les infos d'utilisateur
      * @returns {"dictionnary"} newProfile le dictionnaire contenant toutes les informations
      */
-
     let newProfile = {
         matricule: form.matricule.value,
         nom: form.nom.value,
         prenom: form.prenom.value,
         email: form.matricule.value + "@students.ephec.be",
         adresse: `${form.rue.value} n°${form.numero.value},\n ${form.codeP.value} ${form.ville.value}`,
-        ville: `${form.ville.value},${form.codeP.value}`,
+        ville: `${form.ville.value}`,
 
         horaire: {
             lundiAE: form.lundiD.value,
@@ -122,7 +121,35 @@ function formInscription(form) {
     }
     profile[newProfile.matricule] = newProfile;
     document.getElementById("inscription").reset();
+    document.getElementById("msgConfProf").innerText = `Votre inscription a été prise en compte !`;
     return false;
+}
+
+let distanceAffiche = 0 //j'arrive pas a faire autrement pour return le xhr.onload
+function direction(dest1, dest2) { //dest1 et dest2 sont les deux villes
+
+    let body = {
+        "locations": [
+            dest1,
+            dest2
+        ],
+        "options": {
+            "allToAll": false
+        }
+    };
+    body = JSON.stringify(body)
+    let xhr = new XMLHttpRequest();
+    xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', false)
+    xhr.onload = result;
+    xhr.send(body);
+
+    function result(){
+        let distance = JSON.parse(this.responseText);
+
+        distanceAffiche = distance.distance[1];// affiche la distance peut'être utiliser return ?
+        //console.log(distanceAffiche);
+    }
+    return result;
 }
 
 function checkSignedUp(matric){
@@ -149,8 +176,9 @@ function data(form){
         };
         id++;
         update(list_annonce);
-    }else{
-    }   
+    }
+    document.getElementById("form").reset();
+    document.getElementById("msgConfPost").innerText = `Votre poste a été pris en compte (Annonce ${id -1}) !s`;
     return false;
 }
 
@@ -172,29 +200,6 @@ function update(dico){
     section.innerHTML=html;
 }
 
-//API foireuse pour démo
-function direction(dir1, dir2) { //dest1 et dest2 sont les deux villes
-
-    let body = {
-        "locations": [
-            dir1,
-            dir2
-        ],
-        "options": {
-            "allToAll": false
-        }
-    };
-    body = JSON.stringify(body)
-    let xhr = new XMLHttpRequest();
-    xhr.open('post', 'http://open.mapquestapi.com/directions/v2/routematrix?key=GD6PXRruQPPv1pRXEwPSUomrtyMGDpfe', false)
-
-    xhr.onload = function() {
-        let distance = JSON.parse(this.responseText);
-        console.log(distance.distance[1] + 10);
-    }
-
-    xhr.send(body);
-}
 
 //Simulation d'échange mail client-conducteur
 function confirmation(ids){
@@ -208,9 +213,15 @@ function confirmation(ids){
         return -1
     }
     let client = profile[user];
+    direction(client["ville"], "Louvain-La-Neuve");
+    let distCLLN = distanceAffiche + 10;
+    direction(client["ville"], "Wavre");
+    let distConCli = distanceAffiche;
+
     //Conducteur
     console.log("==Conducteur=============================================================================");
-    console.log(`Le client ${client["nom"]} ${client["prenom"]}, habitant ${client["adresse"]} est intéressé par votre annonce ${ids}`);
+    console.log(`Le client ${client["nom"]} ${client["prenom"]}, habitant ${client["adresse"]} est intéressé par votre annonce ${ids}.`);
+    console.log(`Le client se trouve à ${distCLLN} km de l'Ephec et à ${distConCli} de chez vous. Vous aurez ${(distConCli + distCLLN).toFixed(2)} km à parcourir.`);
     if (prompt("Accpetez vous ? (oui / non)") === "oui"){
         console.log("Vous avez accepté le client.");
         console.log("==Client=============================================================================");
