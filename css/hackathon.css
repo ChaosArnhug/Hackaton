@@ -12,8 +12,6 @@ button{
     color:white;
 }
 header{
-    position:fixed;
-    background-color:white;
 }
 #formInput{
     box-sizing: border-box;
